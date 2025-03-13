@@ -5,9 +5,10 @@ int main(){
 //FIZ O CÓDIGO EM INT PARA QUE PREENCHESSE ALTOMÁTICO O CÓDIGO DA CARTA
 
     char estado[10], cidade[20], CIDADE[20], ESTADO[10];
-    int populacao, turismo, codigo, POPULACAO, TURISMO, CODIGO;
-    float area, pib, AREA, PIB;
-    float dp, ppc, DP, PPC;
+    unsigned long int populacao, POPULACAO, resultadopopulacao;
+    int turismo, codigo, TURISMO, CODIGO, resultadoarea, resultadoturistico;
+    float area, pib, AREA, PIB, resultadopib;
+    float dp, ppc, DP, PPC, SuperPoder, SUPERPODER, resultadoppc, resultadodp, resultadosuperpoder;
 
     //CARTA 1
     printf("Carta 1:\n");
@@ -95,6 +96,29 @@ int main(){
 
     printf("Densidade populacional: %.2f\n", DP);
     printf("PIB per capita: %.2f\n\n", PPC);
+
+
+    //COMPARAÇÃO DAS CARTAS E CRIANDO O SUPER PODER.
+
+    SuperPoder = populacao + area + pib + turismo + ppc + (1 / dp);
+    SUPERPODER = POPULACAO + AREA + PIB + TURISMO + PPC + (1 / DP);
+
+    resultadopopulacao = populacao > POPULACAO;
+    resultadoarea = area > AREA;
+    resultadopib = pib > PIB;
+    resultadoturistico = turismo > TURISMO;
+    resultadodp = dp < DP;
+    resultadoppc = ppc > PPC;
+    resultadosuperpoder = SuperPoder > SUPERPODER;
+
+    printf ("Qaundo o resultado for 1 a Carta1 será a vencedora e quando for 0 a Carta2 será a vencedora\n\n");
+    printf("População: %u\n", resultadopopulacao);
+    printf("Área: %d\n", resultadoarea);
+    printf("PIB: %.0f\n", resultadopib);
+    printf("Pontos Turisticos: %d\n", resultadoturistico);
+    printf("Densidade Populacional: %.0f\n", resultadodp);
+    printf("PIB per capita: %.0f\n", resultadoppc);
+    printf("Super Poder: %.0f\n", resultadosuperpoder);
 
     return 0;
 }
