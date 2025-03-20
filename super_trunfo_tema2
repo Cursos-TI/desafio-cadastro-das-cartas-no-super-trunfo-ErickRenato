@@ -1,0 +1,138 @@
+#include <stdio.h>
+
+int main(){
+
+//FIZ O CÓDIGO EM INT PARA QUE PREENCHESSE ALTOMÁTICO O CÓDIGO DA CARTA
+
+    char estado[10], cidade[20], CIDADE[20], ESTADO[10];
+    unsigned long int populacao, POPULACAO, resultadopopulacao;
+    int turismo, codigo, TURISMO, CODIGO, resultadoarea, resultadoturistico;
+    float area, pib, AREA, PIB, resultadopib;
+    float dp, ppc, DP, PPC, SuperPoder, SUPERPODER, resultadoppc, resultadodp, resultadosuperpoder;
+
+    //CARTA 1
+    printf("Carta 1:\n");
+
+    printf("Uma letra de A a H para representar de 1 a 8 estados: ");
+    scanf(" %s", estado);
+
+    printf("Número de 01 a 04 para representar o código da carta: ");
+    scanf("%d", &codigo);
+
+    printf("Nome da cidade: ");
+    scanf("%s", cidade);
+
+    printf("Número de habitantes da cidade: ");
+    scanf("%d", &populacao);
+
+    printf("Área da cidade em quilometros quadrados: ");
+    scanf("%f", &area);
+
+    printf("O PIB da cidade: ");
+    scanf("%f", &pib);
+
+    printf("A quantidade de pontos turísticos da cidade: ");
+    scanf("%d", &turismo);
+
+//CARTA 2
+    printf("\n\nCarta 2:\n");
+
+    printf("Uma letra de A a H para representar de 1 a 8 estados: ");
+    scanf(" %s", ESTADO);
+
+    printf("Número de 01 a 04 para representar o código da carta: ");
+    scanf("%d", &CODIGO);
+
+    printf("Nome da cidade: ");
+    scanf("%s", CIDADE);
+
+    printf("Número de habitantes da cidade: ");
+    scanf("%d", &POPULACAO);
+
+    printf("Área da cidade em quilometros quadrados: ");
+    scanf("%f", &AREA);
+
+    printf("O PIB da cidade: ");
+    scanf("%f", &PIB);
+
+    printf("A quantidade de pontos turísticos da cidade: ");
+    scanf("%d", &TURISMO);
+
+    //CARTA 1
+    printf("\nCarta 1:\n");
+
+    printf("Estado: %s\n", estado);
+    printf("Código da carta: %s0%d\n",estado, codigo);
+    printf("Nome da cidade: %s\n", cidade);
+    printf("População: %d Habitantes\n", populacao);
+    printf("Área: %.1f Km2\n", area);
+    printf("PIB: %.1f Reais\n", pib);
+    printf("Número de pontos turísticos: %d Pontos Turisticos", turismo);
+
+
+    //CARTA 2
+    printf("\n\nCarta 2:\n");
+
+    printf("Estado: %s\n", ESTADO);
+    printf("Código da carta: %s0%d\n", ESTADO, CODIGO);
+    printf("Nome da cidade: %s\n", CIDADE);
+    printf("População: %d Habitantes\n", POPULACAO);
+    printf("Área: %.1f Km2\n", AREA);
+    printf("PIB: %.1f Reais\n", PIB);
+    printf("Número de pontos turísticos: %d Pontos Turisticos\n\n\n", TURISMO);
+
+   
+    //CALCULOS DE DENSIDADE POPULACIONAL E PIB PER CAPITA.
+    printf("Carta 1:\n");
+    dp = (float) (populacao / area);
+    ppc = (float) (pib / populacao);
+
+    printf("Densidade populacional: %.2f\n", dp);
+    printf("PIB per capita: %.2f\n\n", ppc);
+
+    printf("Carta 2:\n");
+    DP = (float) (POPULACAO / AREA);
+    PPC = (float) (PIB / POPULACAO);
+
+    printf("Densidade populacional: %.2f\n", DP);
+    printf("PIB per capita: %.2f\n\n", PPC);
+
+
+    //COMPARAÇÃO DAS CARTAS E CRIANDO O SUPER PODER.
+
+    SuperPoder = populacao + area + pib + turismo + ppc + (1 / dp);
+    SUPERPODER = POPULACAO + AREA + PIB + TURISMO + PPC + (1 / DP);
+
+    resultadopopulacao = populacao > POPULACAO;
+    resultadoarea = area > AREA;
+    resultadopib = pib > PIB;
+    resultadoturistico = turismo > TURISMO;
+    resultadodp = dp < DP;
+    resultadoppc = ppc > PPC;
+    resultadosuperpoder = SuperPoder > SUPERPODER;
+
+    printf ("Qaundo o resultado for 1 a Carta1 será a vencedora e quando for 0 a Carta2 será a vencedora\n\n");
+    printf("População: %u\n", resultadopopulacao);
+    printf("Área: %d\n", resultadoarea);
+    printf("PIB: %.0f\n", resultadopib);
+    printf("Pontos Turisticos: %d\n", resultadoturistico);
+    printf("Densidade Populacional: %.0f\n", resultadodp);
+    printf("PIB per capita: %.0f\n", resultadoppc);
+    printf("Super Poder: %.0f\n", resultadosuperpoder);
+
+    // RESULTADO DA POPULAÇÃO DE CADA CIDADE
+
+    printf("Comparação de cartas (Atributo População)\n\n");
+    printf("População Carta 1: %s : %u\n", cidade, populacao);
+    printf("População Carta 2: %s : %u\n\n", CIDADE, POPULACAO);
+
+// COMPARAÇÃO DA POPULAÇÃO DAS DUAS CARTAS
+
+    if (populacao > POPULACAO){
+        printf("A Carta 1 VENCEU!\n");
+    }else {
+        printf("A Carta 2 VENCEU!\n");
+    }
+
+    return 0;
+}
